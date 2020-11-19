@@ -18,7 +18,10 @@ class Forward extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $result = $this->forwardFactory->create();
-        $result->setModule('exampleresponse')->setController('Index')->forward('html');
+        //$result->setModule('exampleresponse')->setController('Index')->forward('html');
+        $result->setModule('catalog')->setController('product')->setParams(['id' => 1])->forward('view');
+
+        //$result->setModule('cms')->setController('page')->setParams(['id' => 4])->forward('view');
         return $result;
     }
 }
